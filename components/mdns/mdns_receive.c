@@ -1299,7 +1299,7 @@ static void mdns_parse_packet(mdns_rx_packet_t *packet)
                     } else if (col == 1) {
                         do_not_reply = true;
                         if (mdns_priv_pcb_is_probing(packet)) {
-                            if (col && (parsed_packet->probe || parsed_packet->authoritative)) &&
+                            if (col && (parsed_packet->probe || parsed_packet->authoritative) &&
                                 strcasecmp(name->host, mdns_priv_get_global_hostname()) == 0) {
                                 mdns_priv_pcb_set_probe_failed(packet);
                                 char *new_host = mangle_name((char *) mdns_priv_get_global_hostname());
